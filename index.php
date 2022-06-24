@@ -1,8 +1,10 @@
 <?php
 	
     $parola = $_GET['parola'];
+    $parola_trim = trim($parola);
+
 	$testo = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo reprehenderit, excepturi, ullam, quam aut molestiae rerum assumenda ut consequatur amet velit voluptates delectus. Quam aspernatur a maiores atque quae quibusdam?';
-	$testo_replaced = str_replace($parola, '(***)', $testo);
+	$testo_replaced = str_replace($parola_trim, '(***)', $testo);
 
 ?>
 
@@ -20,8 +22,13 @@
 	<input type="text" name="parola" id="name">
 	<button>scrivi una parola da cesurare</button>
 </form>
-<h1>testo</h1>
+<h1>Testo Originale</h1>
+<p><?= $testo ?></p>
+
+<h1>Testo Con Censura</h1>
 <p><?= $testo_replaced ?></p>
+
+<h1>Lunghezza testo sostituito: <?= strlen($testo_replaced) ?></h1>
 
 </body>
 </html>
